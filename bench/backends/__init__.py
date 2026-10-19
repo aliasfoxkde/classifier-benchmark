@@ -28,8 +28,12 @@ def create_backend(name: str, **kwargs) -> Backend:
     from .laya import LayaBackend
 
     return LayaBackend(**kwargs)
+  if name == "opencodifier":
+    from .opencodifier import OpencodifierBackend
+
+    return OpencodifierBackend(**kwargs)
   raise ValueError(
-    f"Unknown backend '{name}'. Available: von, jev, jeff, gliner2, gliner25-decide, laya"
+    f"Unknown backend '{name}'. Available: von, jev, jeff, gliner2, gliner25-decide, laya, opencodifier"
   )
 
 
